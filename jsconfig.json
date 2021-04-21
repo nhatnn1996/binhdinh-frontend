@@ -5,7 +5,7 @@
       "@/components/*": ["components/*"],
       "@/widgets/*": ["widgets/*"],
       "@/shared/*": ["shared/*"],
-      "@/public/*": ["public/*"],
+      "@/public/*": ["public/*"]
     }
   }
 }

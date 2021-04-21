@@ -2,3 +2,20 @@ body,
 html {
   font-family: "Roboto Condensed", sans-serif !important;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.hover-transform-x {
+  transition: transform 0.3s ease;
+}
+.hover-transform-x:hover {
+  transform: translateX(10px);
+}
+
+@media (min-width: 1281px) {
+  .container {
+    max-width: 1280px;
+  }
+}

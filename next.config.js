@@ -11,6 +11,13 @@ module.exports = {
         use: ["@svgr/webpack"],
       },
     ],
+    images: {
+      domains: ["anhdepfree.com"],
+    },
   },
-  
+  variants: {
+    extend: {
+      pointerEvents: ["hover", "focus"],
+    },
+  },
 };
