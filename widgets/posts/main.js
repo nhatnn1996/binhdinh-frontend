@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const PostMain = () => {
   return (
-    <div className="post-main py-5 mt-5">
-      <div className="font-bold text-md text-blue-600 text-sm">TIN TỨC CHÍNH</div>
+    <div className="post-main pb-5 mt-2">
+      <div className="font-bold text-md text-blue-600 text-md">TIN TỨC CHÍNH</div>
       <Link href="/about">
         <div className="post-content w-12/12">
           <img
@@ -21,11 +21,11 @@ const PostMain = () => {
         </div>
       </Link>
       <style jsx>{`
-        .post-content{
-            cursor: pointer;
+        .post-content {
+          cursor: pointer;
         }
-        .post-main{
-            border-bottom: 1px solid hsla(0, 0%, 0%, 0.3);
+        .post-main {
+          border-bottom: 1px solid hsla(0, 0%, 0%, 0.3);
         }
         .post-main-image {
           width: 100%;
