@@ -53,6 +53,7 @@ const Video = () => {
             {listVideo.map((element) => (
               <div
                 className="flex box-image-video"
+                key={element.title}
                 onClick={() => {
                   setId(element.id);
                 }}

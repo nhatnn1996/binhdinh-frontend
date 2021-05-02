@@ -7,6 +7,7 @@ import PostRecommed from "@/widgets/posts/recommend";
 import Video from "@/widgets/video/index";
 import Footer from "@/widgets/footer/";
 import SliderBar from "@/widgets/slider-bar/index"
+import Site from "@/widgets/site/index"
 import "tailwindcss/tailwind.css";
 
 export default function Home() {

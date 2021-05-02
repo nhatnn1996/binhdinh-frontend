@@ -1,5 +1,12 @@
 import Title from "@/components/title";
 import Link from "next/link";
+
+const dataInfomation = [
+  { title: "Thông báo 1", id: "wieu2103912", href: "/about" },
+  { title: "Thông báo 2", id: "12312414", href: "/about" },
+  { title: "Thông báo 3", id: "12312098102", href: "/about" },
+  { title: "Thông báo 4", id: "91283jshkhwqke", href: "/about" },
+];
 const Menu = () => {
   return (
     <div>
@@ -23,7 +30,17 @@ const Menu = () => {
       </div>
       <div className="box my-3">
         <Title>Thông báo</Title>
-        <Notification value={{ href: "/about", name: "Nội dung thông báo" }} />
+        {dataInfomation.map((element) => (
+          <Notification key={element.id} value={element} />
+        ))}
+      </div>
+      <div className="box my-3">
+        <Title>Dự án đầu tư</Title>
+        <img src="/images/adb.jpg" className="mt-2" alt="" />
+      </div>
+      <div className="box my-3">
+        <Title>Thanh toán trực tiếp</Title>
+        <img src="/images/agribank.jpg" className="mt-2" alt="" />
       </div>
     </div>
   );
@@ -32,8 +49,8 @@ export default Menu;
 
 const Notification = (props) => {
   return (
-    <Link href={props.value.href} >
-      <a className="flex mt-3"   >
+    <Link href={props.value.href}>
+      <a className="flex mt-3 link-notification pointer font-bold text-blue-500 hover:text-blue-700">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
@@ -42,7 +59,12 @@ const Notification = (props) => {
             d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
           />
         </svg>
-        <div className="text-base ml-3">{props.value.name}</div>
+        <div className="text-base  ml-3">{props.value.title}</div>
+        <style jsx>{`
+          .hover {
+            transition: color 0.3s ease-in-out;
+          }
+        `}</style>
       </a>
     </Link>
   );
