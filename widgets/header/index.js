@@ -3,8 +3,8 @@ import Search from "@/components/input/search/search";
 
 const Header = () => {
   return (
-    <header className="header flex justify-center">
-      <div className="container header-top flex flex-row py-2 ">
+    <header className="header flex justify-center ">
+      <div className="container header-top flex flex-row py-5 ">
         <div className="w-5/12 flex">
           <div className="w-16 mr-6 ">
             <Link href="/about">
@@ -40,8 +40,8 @@ const Header = () => {
           position: relative;
         }
         .contact-content {
-          transform: translateY(-50%);
-          margin-top: 14px;
+          
+          
           position: absolute;
           top: 50%;
           right: 5%;
@@ -54,7 +54,7 @@ const Header = () => {
           background-size: auto 100%;
           background-repeat: no-repeat;
           background-position: center right;
-          transform: translateY(3px);
+          transform: translateY(15px);
         }
       `}</style>
     </header>

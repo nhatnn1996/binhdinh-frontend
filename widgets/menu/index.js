@@ -31,7 +31,7 @@ const Item = (props) => {
   return (
     <li className="mr-8 menu-item font-base flex related items-center">
       <Link href="/">
-        <a className="text-gray-700">{element.name}</a>
+        <a className="text-gray-700 font-bold">{element.name}</a>
       </Link>
       {element.sub && element.sub.length > 0 && (
         <>

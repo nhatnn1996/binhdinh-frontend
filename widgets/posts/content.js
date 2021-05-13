@@ -1,6 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
-
 const PostContent = () => {
   return (
     <div className="post-main py-5 mt-5 flex">
