@@ -1,17 +1,19 @@
 import { url_base, url_api } from "@/shared/container/index";
+import { localeTime } from "@/shared/helper/function";
 import Link from "next/link";
 import useSwr from "swr";
 const fetcher = (url) => fetch(url).then((res) => res.json());
+import { useRouter } from "next/router";
 
 const Folder = ({ folder }) => {
+  const router = useRouter();
   const { data: temps, error } = useSwr(url_api + `/temps?folder=` + folder._id, fetcher);
   if (!temps) return <div>Loadding</div>;
   else
     return (
-      <div className="mr-6">
-        <div className="title font-bold text-lg ">{folder.Name}</div>
-        <div className="text-xs font-base mt-2"> 10.10.2020 </div>
-        <div className="title font-bold text-lg py-2">File</div>
+      <div className="mr-6 ">
+        <div className="title font-bold text-lg">{folder.Name}</div>
+        <div className="text-xs font-base font-bold mt-1"> {localeTime(folder.published_at)} </div>
         <div className="flex flex-wrap">
           {temps.map((element) => (
             <Item key={element.id} value={element} />

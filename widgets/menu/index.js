@@ -1,14 +1,25 @@
 import Link from "next/link";
+import {useState} from "react"
 
 const menus = [
-  { name: "Trang chủ" },
-  { name: "Giới thiệu" },
-  { name: "Tin tức - sư kiện" },
-  { name: "Dự án đầu tư" },
-  { name: "Bộ chỉ số", sub: [{ name: "Nhà máy nước sạch" }, { name: "Liên hệ" }, { name: "Góp ý" }] },
-  { name: "Nhà máy nước sạch" },
-  { name: "Liên hệ" },
-  { name: "Góp ý" },
+  { name: "Trang chủ", href: "/" },
+  { name: "Giới thiệu", href: "/" },
+  {
+    name: "Tin tức - sư kiện",
+    href: "/",
+    sub: [
+      {
+        name: "Kết quả xét nghiệm nước",
+        href: "/folders/ket-qua-xet-nghiem-nuoc",
+        sub: [{ name: "Nhà máy nước sạch" }, { name: "Liên hệ" }, { name: "Góp ý" }],
+      },
+    ],
+  },
+  { name: "Dự án đầu tư", href: "/" },
+  { name: "Bộ chỉ số", href: "/folders/bo-chi-so", sub: [{ name: "Nhà máy nước sạch" }, { name: "Liên hệ" }, { name: "Góp ý" }] },
+  { name: "Nhà máy nước sạch", href: "/" },
+  { name: "Liên hệ", href: "/" },
+  { name: "Góp ý", href: "/" },
 ];
 const Menu = () => {
   return (
@@ -30,7 +41,7 @@ const Item = (props) => {
 
   return (
     <li className="mr-8 menu-item font-base flex related items-center">
-      <Link href="/">
+      <Link href={element.href}>
         <a className="text-gray-700 font-bold">{element.name}</a>
       </Link>
       {element.sub && element.sub.length > 0 && (
@@ -47,7 +58,6 @@ const Item = (props) => {
       )}
       <style global jsx>{`
         .menu-item {
-          
           transition: color 0.3s ease;
         }
         .menu-item a:hover {
@@ -73,8 +83,8 @@ const SubMenu = (props) => {
         </li>
       ))}
       <style jsx>{`
-        .sub{
-          display: none
+        .sub {
+          display: none;
         }
       `}</style>
     </ul>

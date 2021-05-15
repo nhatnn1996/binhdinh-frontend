@@ -1,23 +1,15 @@
 import Link from "next/link";
+import { url_base } from "@/shared/container/index";
 
-const PostMain = () => {
+const PostMain = ({ post }) => {
   return (
     <div className="post-main pb-5 mt-2">
       <div className="font-bold text-md text-blue-600 text-md">TIN TỨC CHÍNH</div>
       <Link href="/about">
         <div className="post-content w-12/12">
-          <img
-            className="post-main-image mt-2"
-            src="https://anhdepfree.com/wp-content/uploads/2018/08/hinh-nen-dep-nhat-2018.jpg"
-            layout="fill"
-          />
-          <div className="text-base font-bold text-gray-700	mt-2 hover:text-blue-700">
-            Phương án đấu nối cấp nước vào hộ gia đình của Công trình cấp nước sinh hoạt huyện Phù Cát
-          </div>
-          <div className="text-base text-gray-700 hover:text-blue-700">
-            Dự án: Mở rộng phạm vi cấp nước khu Đông Nam huyện Hoài Nhơn: Xây dựng trạm bơm tăng áp, đường ống dẫn nước, phân phối nước
-            sạch...
-          </div>
+          <img className="post-main-image mt-2" src={url_base + post?.file?.url} layout="fill" />
+          <div className="text-base font-bold text-gray-700	mt-2 hover:text-blue-700">{post.name}</div>
+          <div className="text-base text-gray-700 hover:text-blue-700">{post.description}</div>
         </div>
       </Link>
       <style jsx>{`
