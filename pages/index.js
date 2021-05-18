@@ -8,19 +8,18 @@ import Video from "@/widgets/video/index";
 import Footer from "@/widgets/footer/";
 import SliderBar from "@/widgets/slider-bar/index";
 import { url_api } from "@/shared/container/index";
-// import Site from "@/widgets/site/index"
-import "tailwindcss/tailwind.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export async function getStaticProps() {
-  // Get external data from the file system, API, DB, etc.
-  const result = await fetch(url_api + "/posts");
+  const result = await fetch(url_api + "/posts?image_null=false");
   const data = await result.json();
   return {
-    props: { post: data[0] },
+    props: { posts: data },
   };
 }
 
-export default function Home({ post }) {
+export default function Home({ posts }) {
   return (
     <div>
       <Head>
@@ -31,7 +30,7 @@ export default function Home({ post }) {
       <Menu />
       <main className="container mx-auto flex mt-10">
         <div className="w-9/12">
-          <PostMain post={post} />
+          <PostMain posts={posts} />
           <PostContent />
           <PostRecommed />
           <Video />

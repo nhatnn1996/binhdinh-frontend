@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Title from "@/components/title";
 import Link from "next/link";
+import { url_api, url_base } from "@/shared/container/index";
 
 const dataInfomation = [
   { title: "Thông báo 1", id: "wieu2103912", href: "/about" },
@@ -30,9 +32,7 @@ const Menu = () => {
       </div>
       <div className="box my-3">
         <Title>Thông báo</Title>
-        {dataInfomation.map((element) => (
-          <Notification key={element.id} value={element} />
-        ))}
+        <Notifications />
       </div>
       <div className="box my-3">
         <Title>Dự án đầu tư</Title>
@@ -47,18 +47,39 @@ const Menu = () => {
 };
 export default Menu;
 
+const Notifications = () => {
+  const [state, setState] = useState(null);
+
+  if (state === null) {
+    fetch(url_api + "/posts?notification=true")
+      .then((response) => response.json())
+      .then((data) => setState(data));
+    return <div></div>;
+  }
+  return (
+    <div className="py-3">
+      {state.map((element) => (
+        <Notification key={element.id} value={element} />
+      ))}
+    </div>
+  );
+};
+
 const Notification = (props) => {
   return (
-    <Link href={props.value.href}>
-      <a className="flex mt-3 link-notification pointer font-bold text-blue-500 hover:text-blue-700">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <Link href={"bia-biet/" + props.value.slug}>
+      <a className="flex mt-3 link-notification pointer font-bold text-gray-700 hover:text-blue-700">
+        {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="2"
             d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
           />
-        </svg>
+        </svg> */}
+        <div className="flex justify-center">
+          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-red-300	 to-yellow-400"></div>
+        </div>
         <div className="text-base  ml-3">{props.value.title}</div>
         <style jsx>{`
           .hover {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import { url_api, url_base } from "@/shared/container/index";
 
 const videos = [
   {
@@ -33,37 +34,43 @@ const videos = [
   },
 ];
 
-const Video = () => {
-  const [id, setId] = useState(videos[0].id);
-  const mainVideo = videos.find((element) => element.id === id);
-  const listVideo = videos.filter((element) => element.id !== id);
+const WrapVideo = () => {
+  const [videos, setVideos] = useState();
+  if (!videos) {
+    fetch(url_api + "/videos?_limit=4")
+      .then((response) => response.json())
+      .then((data) => setVideos(data));
+    return <div className="post-main py-5 mt-5 flex w-full h-100 bg-gray-100" />;
+  } else return <Video videos={videos} />;
+};
 
+const Video = ({ videos }) => {
+  const [id, setId] = useState(videos[0]._id);
+  const mainVideo = videos.find((element) => element._id === id);
+  const listVideo = videos.filter((element) => element._id !== id);
   return (
     <div className="post-main py-5 mt-5 flex">
       <div className="">
-        <div className="font-bold text-blue-600 text-md">TIN NỔI BẬT</div>
+        <div className="font-bold text-blue-600 text-md mb-3">VIDEO NỔI BẬT</div>
         <div className="flex">
           <div className="w-3/4 pr-3">
-            <video className="video-main" src={mainVideo.video} controls />
+            <video className="video-main" src={url_base + mainVideo.video?.url} controls />
             <div className="overlay"></div>
-            <div className="font-bold mt-4"> {mainVideo.title} </div>
+            <div className="font-bold mt-4"> {mainVideo.name} </div>
             <div className="mt-2">{mainVideo.description}</div>
           </div>
           <div className="w-1/4">
             {listVideo.map((element) => (
               <div
                 className="flex box-image-video"
-                key={element.title}
+                key={element._id}
                 onClick={() => {
-                  setId(element.id);
+                  setId(element._id);
                 }}
               >
-                <img
-                  src="https://cdn.yeudulich.com/940x630/media/attraction/attraction/e5/df/47b9-4bea-4849-b339-f8c17c8aecfa.jpg"
-                  alt=""
-                />
+                <img src={url_base + element.image?.url} alt="" />
                 <div className="overlay pointer"></div>
-                <div className="title-video-sub text-white p-2">{element.title}</div>
+                <div className="title-video-sub text-white p-2">{element.name}</div>
               </div>
             ))}
           </div>
@@ -104,4 +111,4 @@ const Video = () => {
   );
 };
 
-export default Video;
+export default WrapVideo;

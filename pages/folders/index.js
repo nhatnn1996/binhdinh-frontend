@@ -9,7 +9,6 @@ import { url_api } from "@/shared/container/index";
 export const getStaticProps = async () => {
   const res = await fetch(url_api + "/folders");
   const result = await res.json();
-  console.log("🚀 ~ file: index.js ~ line 12 ~ getStaticProps ~ result", result);
   return { props: { folder: result[0] } };
 };
 

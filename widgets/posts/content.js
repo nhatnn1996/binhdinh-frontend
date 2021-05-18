@@ -1,43 +1,51 @@
 import Link from "next/link";
+import { useState } from "react";
+import { url_api } from "@/shared/container/index";
+import { localeTime } from "@/shared/helper/function";
+
 const PostContent = () => {
-  return (
-    <div className="post-main py-5 mt-5 flex">
-      <div className="w-1/2 mr-5 ">
-        <div className="font-bold text-blue-600 text-md">TIN TRONG NƯỚC</div>
-        <div className="mt-4">
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </div>
+  const [state, setState] = useState(null);
+  const blocks = [
+    { name: "TIN TRONG NƯỚC", slug: "tin-trong-nuoc" },
+    { name: "TIN TRONG TỈNH", slug: "tin-trong-tinh" },
+  ];
+  if (!state) {
+    Promise.all(blocks.map((block) => fetch(url_api + "/categories?slug=" + block.slug))).then((responses) => {
+      Promise.all(responses.map((responses) => responses.json())).then((datas) => {
+        const result = datas.map((element) => element[0].posts);
+        setState(result);
+      });
+    });
+    return <div className="post-main py-5 mt-5 flex h-80 -w-full bg-gray-300"></div>;
+  } else
+    return (
+      <div className="post-main py-5 mt-5 flex">
+        {state.map((element, index) => {
+          return (
+            <div className="w-1/2 mr-5 " key={blocks[index].slug}>
+              <div className="font-bold text-blue-600 text-md text-uppercase">{blocks[index].name}</div>
+              <div className="mt-4">
+                {element.map((item) => (
+                  <Post item={item} key={item._id} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
-      <div className="w-1/2 space-r-3 ">
-        <div className="font-bold text-blue-600 text-md">TIN NGOÀI NƯỚC</div>
-        <div className="mt-4">
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default PostContent;
 
-const Post = () => {
+const Post = ({ item }) => {
   return (
     <div className="mb-4">
-      <small className="text-sx">10/20/2021</small>
-      <Link href="/">
-        <a className="text-base font-bold text-gray-700 pointer block hover:text-blue-700">
-          Phương án đấu nối cấp nước vào hộ gia đình của Công trình cấp nước sinh hoạt huyện Phù Cát
-        </a>
+      <small className="text-sx">{localeTime(item.createdAt)}</small>
+      <Link href="/bai-biet">
+        <a className="text-base font-bold text-gray-700 pointer block hover:text-blue-700">{item.title}</a>
       </Link>
-      <div className="text-base text-gray-700">
-        Dự án: Mở rộng phạm vi cấp nước khu Đông Nam huyện Hoài Nhơn: Xây dựng trạm bơm tăng áp, đường ống dẫn nước, phân phối nước sạch...
-      </div>
+      <div className="text-base text-gray-700 line-clamp-2">{item.description}</div>
       <Link href="/">
         <a className="text-base font-bold text-blue-700 pointer flex items-center hover-transform-x">
           <span>Đọc thêm</span>
