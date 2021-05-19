@@ -7,7 +7,8 @@ import { url_api, url_base } from "@/shared/container/index";
 import ReactMarkdown from "react-markdown";
 
 const PostDeital = ({ data }) => {
-  console.log(data);
+  let content = data.content;
+  const result = content.replace("/uploads/", url_base + "/uploads/");
   return (
     <div>
       <Head>
@@ -17,15 +18,15 @@ const PostDeital = ({ data }) => {
       <Header />
       <Menu />
       <main className="container mx-auto flex mt-10">
-        <div className="w-9/12">
-          <div className="pb-4">
-            <div className="font-bold text-blue-700 text-xl">{data.title}</div>
+        <div className="w-9/12 pr-7">
+          <div className="pb-10">
+            <div className="font-bold text-blue-900 text-xl">{data.title}</div>
             {data.image?.url && (
               <div className="spect-w-16 spect-h-9 my-4">
                 <img src={url_base + data.image?.url} />
               </div>
             )}
-            <ReactMarkdown>{data.content}</ReactMarkdown>
+            <ReactMarkdown className="content-detail">{result}</ReactMarkdown>
           </div>
         </div>
         <div className="w-3/12 ml-3">
@@ -33,6 +34,11 @@ const PostDeital = ({ data }) => {
         </div>
       </main>
       <Footer />
+      <style jsx>{`
+        .content p {
+          margin: 5px 0px;
+        }
+      `}</style>
     </div>
   );
 };

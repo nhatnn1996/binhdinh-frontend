@@ -42,11 +42,11 @@ const Post = ({ item }) => {
   return (
     <div className="mb-4">
       <small className="text-sx">{localeTime(item.createdAt)}</small>
-      <Link href="/bai-biet">
+      <Link href={"/bai-viet/" + item.slug}>
         <a className="text-base font-bold text-gray-700 pointer block hover:text-blue-700">{item.title}</a>
       </Link>
       <div className="text-base text-gray-700 line-clamp-2">{item.description}</div>
-      <Link href="/">
+      <Link href={"/bai-viet/" + item.slug}>
         <a className="text-base font-bold text-blue-700 pointer flex items-center hover-transform-x">
           <span>Đọc thêm</span>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -12,18 +12,15 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ folder }) {
-  console.log("🚀 ~ file: index.js ~ line 15 ~ Home ~ folder", folder)
   return (
     <div>
       <Head>
         <title> Trang chi tiết </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <Menu />
       <main className="container mx-auto flex mt-10">
         <div className="w-9/12">
-          <Folder folder={folder}  />
+          <Folder folder={folder} />
         </div>
         <div className="w-3/12 ml-3">
           <SlideBar />

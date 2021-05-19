@@ -31,7 +31,7 @@ export default PostRecommend;
 
 const Post = ({ item }) => {
   return (
-    <Link href="">
+    <Link href={"/bai-viet/" + item.slug}>
       <div className="w-1/3 mr-2">
         <div className="box mt-2 ">
           <div className="aspect-w-16 aspect-h-9">

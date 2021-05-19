@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Search from "@/components/input/search/search";
+import React, { useState } from "react";
 
 const Header = () => {
   return (
@@ -7,8 +8,8 @@ const Header = () => {
       <div className="container header-top flex flex-row py-5 ">
         <div className="w-5/12 flex">
           <div className="w-16 mr-6 ">
-            <Link href="/about">
-              <img src="/images/logo.png" alt="" className="rounded-full shadow-xl" />
+            <Link href="/">
+              <img src="/images/logo.png" alt="" className="rounded-full shadow-xl pointer" />
             </Link>
           </div>
           <div className="tracking-normal	text-white flex flex-col justify-center">
@@ -24,7 +25,7 @@ const Header = () => {
         <div className="w-4/12 contact">
           <div className="text-white mb-2 contact-bg font-bold py-2"> </div>
           <div className="contact-content font-bold text-white">
-            <div className="text-base ">Hổ trợ trực tuyến </div>
+            <div className="text-base text-right">Hổ trợ trực tuyến </div>
             <div className="text-base uppercase">
               Huỳnh Văn Út - <a className="font-bold ">02563823179</a>
             </div>
@@ -40,8 +41,6 @@ const Header = () => {
           position: relative;
         }
         .contact-content {
-          
-          
           position: absolute;
           top: 50%;
           right: 5%;
@@ -61,4 +60,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

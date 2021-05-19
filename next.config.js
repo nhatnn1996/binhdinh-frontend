@@ -17,4 +17,7 @@ module.exports = {
       pointerEvents: ["hover", "focus"],
     },
   },
+  images: {
+    domains: ["http://103.137.185.86:1337"],
+  },
 };
