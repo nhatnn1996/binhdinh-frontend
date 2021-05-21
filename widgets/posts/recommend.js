@@ -35,7 +35,7 @@ const Post = ({ item }) => {
       <div className="w-1/3 mr-2">
         <div className="box mt-2 ">
           <div className="aspect-w-16 aspect-h-9">
-            <img className="box-image" src={url_base + item.image?.url} layout="fill" />
+            <img className="box-image" src={url_base + item.image?.formats.thumbnail.url} layout="fill" />
           </div>
         </div>
         <div className="text-base font-bold text-gray-700	mt-2 hoer:text-blue-700 pointer line-clamp-3">{item.title}</div>

@@ -1,29 +1,89 @@
 import Link from "next/link";
-import {useState} from "react"
+import { useState } from "react";
 
 const menus = [
   { name: "Trang chủ", href: "/" },
-  { name: "Giới thiệu", href: "/" },
+  {
+    name: "Giới thiệu",
+    href: "/danh-muc/gioi-thieu",
+    sub: [
+      {
+        name: "Sự hình thành",
+        href: "/trang/su-hinh-thanh",
+      },
+      {
+        name: "Sơ đồ tổ chức",
+        href: "/trang/so-do-to-chuc",
+      },
+      {
+        name: "Chức năng nhiệm vụ",
+        href: "/trang/chuc-nang-nhiem-vu",
+      },
+    ],
+  },
   {
     name: "Tin tức - sư kiện",
     href: "/",
     sub: [
       {
-        name: "Kết quả xét nghiệm nước",
+        name: "Tin trong nước ",
+        href: "/danh-muc/tin-trong-nuoc",
+      },
+      {
+        name: "Tin trong tỉnh ",
+        href: "/danh-muc/tin-trong-tinh",
+      },
+      {
+        name: "Sự kiện hoạt động",
+        href: "/danh-muc/su-kien-hoat-dong",
+      },
+      {
+        name: "Thông tin hữu ích",
+        href: "/danh-muc/thong-tin-huu-ich",
+      },
+      {
+        name: "Hướng dẫn kỹ thuật",
+        href: "/danh-muc/thong-tin-huu-ich",
+      },
+      {
+        name: "Tin tuyển dụng",
+        href: "/danh-muc/thong-tin-huu-ich",
+      },
+      {
+        name: "Hổ trợ khách hàng",
+        href: "/danh-muc/thong-tin-huu-ich",
+      },
+      {
+        name: "Kết quả xét nghiệm nước ",
         href: "/folders/ket-qua-xet-nghiem-nuoc",
-        sub: [{ name: "Nhà máy nước sạch" }, { name: "Liên hệ" }, { name: "Góp ý" }],
       },
     ],
   },
-  { name: "Dự án đầu tư", href: "/" },
-  { name: "Bộ chỉ số", href: "/folders/bo-chi-so", sub: [{ name: "Nhà máy nước sạch" }, { name: "Liên hệ" }, { name: "Góp ý" }] },
+  {
+    name: "Dự án đầu tư",
+    href: "/",
+    sub: [
+      {
+        name: "Dự án đầu tư giai đoạn 2013 đến 2015",
+        href: "/danh-muc/du-an-dau-tu-giai-doan-2012-den-2015",
+      },
+      {
+        name: "Dự án đầu tư giai đoạn 2021 đến 2023",
+        href: "/danh-muc/du-an-dau-tu-giai-doan-2021-den-2023",
+      },
+      {
+        name: "Chức năng nhiệm vụ",
+        href: "/trang/chuc-nang-nhiem-vu",
+      },
+    ],
+  },
+  { name: "Bộ chỉ số", href: "/folders/bo-chi-so" },
   { name: "Nhà máy nước sạch", href: "/" },
-  { name: "Liên hệ", href: "/" },
-  { name: "Góp ý", href: "/" },
+  { name: "Liên hệ - góp ý", href: "/" },
 ];
 const Menu = () => {
   return (
-    <nav className="py-4 shadow-xl bg-white">
+    <nav className="shadow-xl bg-white">
       <div className="container mx-auto">
         <ul className="flex ">
           {menus.map((element, index) => (
@@ -38,9 +98,8 @@ const Menu = () => {
 export default Menu;
 const Item = (props) => {
   const { element } = props;
-
   return (
-    <li className="mr-8 menu-item font-base flex related items-center">
+    <li className="mr-8 menu-item font-base flex relative items-center  py-4">
       <Link href={element.href}>
         <a className="text-gray-700 font-bold">{element.name}</a>
       </Link>
@@ -60,8 +119,11 @@ const Item = (props) => {
         .menu-item {
           transition: color 0.3s ease;
         }
-        .menu-item a:hover {
+        .menu-item:hover > a {
           color: black;
+        }
+        .menu-item:hover .sub {
+          display: block;
         }
         svg {
           width: 20px;
@@ -74,17 +136,23 @@ const Item = (props) => {
 
 const SubMenu = (props) => {
   return (
-    <ul className="sub absolute">
+    <ul className="sub absolute rounded-xs bg-white shadow-2xl">
       {props.sub.map((element, index) => (
         <li className="sub-item" key={index}>
-          <Link href="/">
-            <a>{element.name}</a>
+          <Link href={element.href || "/"}>
+            <a className="py-4 px-6 block whitespace-nowrap font-medium hover:text-white hover:bg-blue-700 transition duration-300 ">
+              {element.name}
+            </a>
           </Link>
         </li>
       ))}
       <style jsx>{`
         .sub {
+          top: 100%;
+          left: -10px;
           display: none;
+          z-index: 1;
+          border-top: 2px solid #cfcfcf;
         }
       `}</style>
     </ul>

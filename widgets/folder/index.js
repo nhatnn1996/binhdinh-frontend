@@ -14,7 +14,7 @@ const Folder = ({ folder }) => {
       <div className="mr-6 ">
         <div className="title font-bold text-lg">{folder.Name}</div>
         <div className="text-xs font-base font-bold mt-1"> {localeTime(folder.published_at)} </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap mt-3">
           {temps.map((element) => (
             <Item key={element.id} value={element} />
           ))}
@@ -26,8 +26,8 @@ const Folder = ({ folder }) => {
 export default Folder;
 const Item = ({ value }) => (
   <Link href={url_base + value?.file?.url}>
-    <a target="_blank" rel="noreferrer" className="lg:w-1/2 x mt-2 flex flex-initial">
-      <div className="mr-2 w-full shadow-xl rounded-md p-4 hover:bg-blue-400 hover:scale-95 pointer hover:text-white flex items-align transform duration-500 transition">
+    <a target="_blank" rel="noreferrer" className="lg:w-1/2 flex pr-3 mb-5 flex-initial">
+      <div className="mr-2 w-full shadow-sm bg-gray-100 rounded-sm p-4 hover:shadow-xl hover:bg-blue-400 hover:scale-95 pointer hover:text-white flex items-align transform duration-500 transition">
         <div className="box icon p-2 flex items-center">
           <div className="bg-gray-100 rounded-md text-white h-10 w-10 flex items-center justify-center">
             <img src="/icons/folder.svg" alt="" width={30} height={30} />

@@ -20,7 +20,7 @@ const PostMain = ({ posts }) => {
             <img className="post-main-image mt-2" src={url_base + post?.image?.url} layout="fill" />
             <Link href={"/bai-viet/" + post.slug}>
               <div>
-                <div className="text-base font-bold text-gray-700	mt-2 hover:text-blue-700">{post.name}</div>
+                <div className="text-base font-bold text-gray-700	mt-2 hover:text-blue-700">{post.title}</div>
                 <div className="text-base text-gray-700 hover:text-blue-700 line-clamp-2">{post.description}</div>
               </div>
             </Link>

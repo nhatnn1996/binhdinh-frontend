@@ -18,15 +18,9 @@ export default function Home({ folder }) {
         <title> Trang chi tiết </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container mx-auto flex mt-10">
-        <div className="w-9/12">
-          <Folder folder={folder} />
-        </div>
-        <div className="w-3/12 ml-3">
-          <SlideBar />
-        </div>
-      </main>
-      <Footer />
+      <div className="main">
+        <Folder folder={folder} />
+      </div>
     </div>
   );
 }

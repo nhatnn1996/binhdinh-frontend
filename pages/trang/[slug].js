@@ -1,11 +1,13 @@
 import Head from "next/head";
 import { localeTime } from "@/shared/helper/function";
 import { url_api, url_base } from "@/shared/container/index";
-import Markdown from "@/components/ReactMarkdown";
+import NotFound from "@/widgets/notfound";
+import ReactMarkdown from "react-markdown";
 
 const PostDeital = ({ data }) => {
+  if (!data) return <NotFound />;
   let content = data.content;
-  const result = content ? content.replace(/\/uploads\//g, url_base + "/uploads/") : "";
+  const result = content ? content.replaceAll(/\/uploads\//g, url_base + "/uploads/") : "";
   return (
     <div>
       <Head>
@@ -13,14 +15,11 @@ const PostDeital = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="pb-10 pr-10">
-        {/* <div className="div">Quay lại</div> */}
         <div className="font-bold text-blue-900 text-xl">{data.title}</div>
-        <div className=" mt-3">
+        <div className="">
           Tác giả:
-          <strong className="ml-3">
-            Quản trị viên
-            {/* {data.admin_user?.firstname} */}
-          </strong>
+          <strong className=""> Quản trị viên </strong>
+          {/* {data.admin_user?.firstname } */}
         </div>
         <code className="text block mt-3">{localeTime(data.createdAt)}</code>
         {data.image?.url && (
@@ -28,7 +27,8 @@ const PostDeital = ({ data }) => {
             <img src={url_base + data.image?.url} />
           </div>
         )}
-        <Markdown className="content-detail">{result}</Markdown>
+        <ReactMarkdown className="content-detail">{result}</ReactMarkdown>
+
         {data.file && (
           <div className="mt-5">
             <a className="font-medium text-blue-700 text-lg" href={url_base + data.file.url} target="_blank">
@@ -47,7 +47,7 @@ const PostDeital = ({ data }) => {
 };
 
 PostDeital.getInitialProps = async ({ query, ...ctx }) => {
-  const res = await fetch(url_api + "/posts?slug=" + query.slug);
+  const res = await fetch(url_api + "/pages?Slug=" + query.slug);
   const data = await res.json();
   return { data: data[0] };
 };
