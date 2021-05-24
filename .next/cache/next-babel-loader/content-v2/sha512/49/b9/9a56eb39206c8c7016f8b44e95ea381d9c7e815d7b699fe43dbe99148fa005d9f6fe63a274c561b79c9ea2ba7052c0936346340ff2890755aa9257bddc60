@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { jsx as _jsx } from \"react/jsx-runtime\";\n\nconst NotFound = () => {\n  return /*#__PURE__*/_jsx(\"div\", {\n    className: \"px-10\",\n    children: /*#__PURE__*/_jsx(\"img\", {\n      src: \"/images/notfound.jpg\",\n      className: \"w-full h-100\"\n    })\n  });\n};\n\nexport default NotFound;","map":null,"metadata":{},"sourceType":"module"}

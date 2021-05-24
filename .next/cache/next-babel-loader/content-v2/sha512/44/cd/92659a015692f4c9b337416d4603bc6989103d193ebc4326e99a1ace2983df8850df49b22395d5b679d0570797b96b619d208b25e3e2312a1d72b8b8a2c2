@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const localeTime = time => {\n  const day = new Date(time).toLocaleString().split(\",\")[0];\n  return day;\n};","map":null,"metadata":{},"sourceType":"module"}
