@@ -22,11 +22,13 @@ const FolderPage = ({ folder, ...rest }) => {
   );
 };
 
-FolderPage.getInitialProps = async ({ query, ...ctx }) => {
+export async function getServerSideProps({ query, ...ctx }) {
   const res = await fetch("http://103.137.185.86:1337/folders?Slug=" + query.slug);
   const data = await res.json();
 
-  return { folder: data[0] || null };
-};
+  return {
+    props: { folder: data ? data[0] : null },
+  };
+}
 
 export default FolderPage;

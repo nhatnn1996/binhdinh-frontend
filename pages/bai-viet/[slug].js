@@ -2,8 +2,12 @@ import Head from "next/head";
 import { localeTime } from "@/shared/helper/function";
 import { url_api, url_base } from "@/shared/container/index";
 import Markdown from "@/components/ReactMarkdown";
+import NotFound from '@/widgets/notfound'
 
 const PostDeital = ({ data }) => {
+
+  if( !data ) return <NotFound />
+
   let content = data.content;
   const result = content ? content.replace(/\/uploads\//g, url_base + "/uploads/") : "";
   return (
@@ -46,10 +50,12 @@ const PostDeital = ({ data }) => {
   );
 };
 
-PostDeital.getInitialProps = async ({ query, ...ctx }) => {
+export async function getServerSideProps({ query, ...ctx }) {
   const res = await fetch(url_api + "/posts?slug=" + query.slug);
   const data = await res.json();
-  return { data: data[0] };
-};
+  return {
+    props: { data: data[0] }
+  };
+}
 
 export default PostDeital;

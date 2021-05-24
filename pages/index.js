@@ -8,9 +8,10 @@ import { url_api } from "@/shared/container/index";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export async function getStaticProps() {
+export async function getServerSideProps({ query, ...ctx }) {
   const result = await fetch(url_api + "/posts?image_null=false");
   const data = await result.json();
+
   return {
     props: { posts: data },
   };

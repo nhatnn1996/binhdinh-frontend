@@ -16,7 +16,6 @@ const Video = ({ videos }) => {
   const [id, setId] = useState(videos[0]._id);
   const mainVideo = videos.find((element) => element._id === id);
   const listVideo = videos.filter((element) => element._id !== id);
-  console.log("🚀 ~ file: index.js ~ line 19 ~ Video ~ listVideo", listVideo)
   return (
     <div className=" py-5 mt-5 flex">
       <div className="w-full">

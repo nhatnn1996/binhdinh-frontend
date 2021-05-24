@@ -3,6 +3,7 @@ import Link from "next/link";
 import { url_api, url_base } from "@/shared/container/index";
 import { localeTime } from "@/shared/helper/function";
 import ReactMarkdown from "react-markdown";
+import NotFound from "@/widgets/notfound";
 
 const PostDeital = ({ data }) => {
   return (
@@ -27,7 +28,7 @@ const PostDeital = ({ data }) => {
 };
 
 const PostCard = ({ item }) => {
-  const content = item.content.replace(/\/uploads\//g, url_base + "/uploads/");
+  const content = item.content ? item.content.replace(/\/uploads\//g, url_base + "/uploads/") : "";
   const img = item.image ? url_base + item.image.formats.thumbnail.url : "/images/picture.png";
   return (
     <div className="post-card rounded-md bg-gray-50 p-4 flex shadown-md transform transition duration-300 hover:-translate-y-1 mb-4">
@@ -50,10 +51,12 @@ const PostCard = ({ item }) => {
   );
 };
 
-PostDeital.getInitialProps = async ({ query, ...ctx }) => {
+export async function getServerSideProps({ query, ...ctx }) {
   const res = await fetch(url_api + "/categories?slug=" + query.slug);
   const data = await res.json();
-  return { data: data[0] ? data[0].posts : [] };
-};
+  return {
+    props: { data: data[0] ? data[0].posts : [] }
+  };
+}
 
 export default PostDeital;
