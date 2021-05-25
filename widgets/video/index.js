@@ -17,7 +17,7 @@ const Video = ({ videos }) => {
   const mainVideo = videos.find((element) => element._id === id);
   const listVideo = videos.filter((element) => element._id !== id);
   return (
-    <div className=" py-5 mt-5 flex">
+    <div className="my-5 flex">
       <div className="w-full">
         <div className="font-bold text-blue-600 text-md mb-3">VIDEO NỔI BẬT</div>
         <div className="flex w-full">

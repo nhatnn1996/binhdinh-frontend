@@ -2,11 +2,10 @@ import Head from "next/head";
 import { localeTime } from "@/shared/helper/function";
 import { url_api, url_base } from "@/shared/container/index";
 import Markdown from "@/components/ReactMarkdown";
-import NotFound from '@/widgets/notfound'
+import NotFound from "@/widgets/notfound";
 
 const PostDeital = ({ data }) => {
-
-  if( !data ) return <NotFound />
+  if (!data) return <NotFound />;
 
   let content = data.content;
   const result = content ? content.replace(/\/uploads\//g, url_base + "/uploads/") : "";
@@ -54,7 +53,7 @@ export async function getServerSideProps({ query, ...ctx }) {
   const res = await fetch(url_api + "/posts?slug=" + query.slug);
   const data = await res.json();
   return {
-    props: { data: data[0] }
+    props: { data: data[0] },
   };
 }
 

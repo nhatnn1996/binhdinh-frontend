@@ -34,7 +34,7 @@ const Post = ({ item }) => {
     <Link href={"/bai-viet/" + item.slug}>
       <div className="w-1/3 mr-2">
         <div className="box mt-2 ">
-          <div className="aspect-w-16 aspect-h-9">
+          <div className="box-16-9">
             <img className="box-image" src={url_base + item.image?.formats.thumbnail.url} layout="fill" />
           </div>
         </div>

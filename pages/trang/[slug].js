@@ -46,10 +46,13 @@ const PostDeital = ({ data }) => {
   );
 };
 
-PostDeital.getInitialProps = async ({ query, ...ctx }) => {
+export async function getServerSideProps({ query, ...ctx }) {
   const res = await fetch(url_api + "/pages?Slug=" + query.slug);
   const data = await res.json();
-  return { data: data[0] };
-};
+
+  return {
+    props: { data: data[0] },
+  };
+}
 
 export default PostDeital;

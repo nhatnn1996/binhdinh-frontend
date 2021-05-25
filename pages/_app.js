@@ -4,6 +4,7 @@ import Footer from "@/widgets/footer/";
 import SliderBar from "@/widgets/slider-bar/index";
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from "next/router";
+
 import "tailwindcss/dist/tailwind.min.css";
 import "@/shared/styles/globals.css";
 

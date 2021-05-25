@@ -1,175 +1,38 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = require('../../ssr-module-cache.js');
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete installedModules[moduleId];
-/******/ 		}
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
-/******/ })
-/************************************************************************/
-/******/ ({
+(function() {
+var exports = {};
+exports.id = 275;
+exports.ids = [275];
+exports.modules = {
 
-/***/ 3:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("Sl8l");
-
-
-/***/ }),
-
-/***/ "D2A5":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return localeTime; });
-const localeTime = time => {
-  const day = new Date(time).toLocaleString().split(",")[0];
-  return day;
-};
-
-/***/ }),
-
-/***/ "DHdS":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return url_api; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return url_base; });
-const url_api = "http://103.137.185.86:1337";
-const url_base = "http://103.137.185.86:1337";
-
-/***/ }),
-
-/***/ "F5FC":
-/***/ (function(module, exports) {
-
-module.exports = require("react/jsx-runtime");
-
-/***/ }),
-
-/***/ "HJQg":
-/***/ (function(module, exports) {
-
-module.exports = require("styled-jsx/style");
-
-/***/ }),
-
-/***/ "Sl8l":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ 8638:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
-__webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { return /* binding */ getServerSideProps; });
+__webpack_require__.d(__webpack_exports__, {
+  "default": function() { return /* binding */ _slug_; },
+  "getServerSideProps": function() { return /* binding */ getServerSideProps; }
+});
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__("F5FC");
-
+var jsx_runtime_ = __webpack_require__(5282);
 // EXTERNAL MODULE: external "styled-jsx/style"
-var style_ = __webpack_require__("HJQg");
+var style_ = __webpack_require__(3289);
 var style_default = /*#__PURE__*/__webpack_require__.n(style_);
-
 // EXTERNAL MODULE: external "next/head"
-var head_ = __webpack_require__("xnum");
+var head_ = __webpack_require__(701);
 var head_default = /*#__PURE__*/__webpack_require__.n(head_);
-
 // EXTERNAL MODULE: ./shared/helper/function.js
-var helper_function = __webpack_require__("D2A5");
-
+var helper_function = __webpack_require__(1473);
 // EXTERNAL MODULE: ./shared/container/index.js
-var container = __webpack_require__("DHdS");
-
+var container = __webpack_require__(5145);
 // EXTERNAL MODULE: external "react-markdown"
-var external_react_markdown_ = __webpack_require__("id0+");
+var external_react_markdown_ = __webpack_require__(3703);
 var external_react_markdown_default = /*#__PURE__*/__webpack_require__.n(external_react_markdown_);
-
-// CONCATENATED MODULE: ./components/ReactMarkdown/index.js
+;// CONCATENATED MODULE: ./components/ReactMarkdown/index.js
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -194,7 +57,7 @@ const Markdown = ({
       } = _ref,
           props = _objectWithoutProperties(_ref, ["node"]);
 
-      return /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", _objectSpread({
+      return /*#__PURE__*/jsx_runtime_.jsx("a", _objectSpread({
         style: {
           color: "blue"
         }
@@ -206,7 +69,7 @@ const Markdown = ({
       } = _ref2,
           props = _objectWithoutProperties(_ref2, ["node"]);
 
-      return /*#__PURE__*/Object(jsx_runtime_["jsx"])("ul", _objectSpread(_objectSpread({
+      return /*#__PURE__*/jsx_runtime_.jsx("ul", _objectSpread(_objectSpread({
         style: {
           listStyleType: "disc",
           marginLeft: 20
@@ -221,7 +84,7 @@ const Markdown = ({
       } = _ref3,
           props = _objectWithoutProperties(_ref3, ["node"]);
 
-      return /*#__PURE__*/Object(jsx_runtime_["jsx"])("li", _objectSpread(_objectSpread({
+      return /*#__PURE__*/jsx_runtime_.jsx("li", _objectSpread(_objectSpread({
         style: {
           margin: "16px 20px 16px 0px"
         }
@@ -231,7 +94,7 @@ const Markdown = ({
     },
     ordered: "false"
   };
-  return /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_react_markdown_default.a, {
+  return /*#__PURE__*/jsx_runtime_.jsx((external_react_markdown_default()), {
     linkTarget: "_blank",
     components: components,
     children: children
@@ -240,9 +103,8 @@ const Markdown = ({
 
 /* harmony default export */ var ReactMarkdown = (Markdown);
 // EXTERNAL MODULE: ./widgets/notfound/index.js
-var notfound = __webpack_require__("UWo5");
-
-// CONCATENATED MODULE: ./pages/bai-viet/[slug].js
+var notfound = __webpack_require__(5051);
+;// CONCATENATED MODULE: ./pages/bai-viet/[slug].js
 
 
 
@@ -262,53 +124,53 @@ const PostDeital = ({
 }) => {
   var _data$image, _data$image2;
 
-  if (!data) return /*#__PURE__*/Object(jsx_runtime_["jsx"])(notfound["a" /* default */], {});
+  if (!data) return /*#__PURE__*/jsx_runtime_.jsx(notfound/* default */.Z, {});
   let content = data.content;
-  const result = content ? content.replace(/\/uploads\//g, container["b" /* url_base */] + "/uploads/") : "";
-  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+  const result = content ? content.replace(/\/uploads\//g, container/* url_base */.I + "/uploads/") : "";
+  return /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
     className: "jsx-3412090669",
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsxs"])(head_default.a, {
-      children: [/*#__PURE__*/Object(jsx_runtime_["jsxs"])("title", {
+    children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)((head_default()), {
+      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("title", {
         className: "jsx-3412090669",
         children: [" ", data.title, " "]
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("link", {
+      }), /*#__PURE__*/jsx_runtime_.jsx("link", {
         rel: "icon",
         href: "/favicon.ico",
         className: "jsx-3412090669"
       })]
-    }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
       className: "jsx-3412090669" + " " + "pb-10 pr-10",
-      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+      children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
         className: "jsx-3412090669" + " " + "font-bold text-blue-900 text-xl",
         children: data.title
-      }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+      }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
         className: "jsx-3412090669" + " " + " mt-3",
-        children: ["T\xE1c gi\u1EA3:", /*#__PURE__*/Object(jsx_runtime_["jsx"])("strong", {
+        children: ["T\xE1c gi\u1EA3:", /*#__PURE__*/jsx_runtime_.jsx("strong", {
           className: "jsx-3412090669" + " " + "ml-3",
           children: "Qu\u1EA3n tr\u1ECB vi\xEAn"
         })]
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("code", {
+      }), /*#__PURE__*/jsx_runtime_.jsx("code", {
         className: "jsx-3412090669" + " " + "text block mt-3",
-        children: Object(helper_function["a" /* localeTime */])(data.createdAt)
-      }), ((_data$image = data.image) === null || _data$image === void 0 ? void 0 : _data$image.url) && /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+        children: (0,helper_function/* localeTime */.C)(data.createdAt)
+      }), ((_data$image = data.image) === null || _data$image === void 0 ? void 0 : _data$image.url) && /*#__PURE__*/jsx_runtime_.jsx("div", {
         className: "jsx-3412090669" + " " + "spect-w-16 spect-h-9 my-4",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: container["b" /* url_base */] + ((_data$image2 = data.image) === null || _data$image2 === void 0 ? void 0 : _data$image2.url),
+        children: /*#__PURE__*/jsx_runtime_.jsx("img", {
+          src: container/* url_base */.I + ((_data$image2 = data.image) === null || _data$image2 === void 0 ? void 0 : _data$image2.url),
           className: "jsx-3412090669"
         })
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(ReactMarkdown, {
+      }), /*#__PURE__*/jsx_runtime_.jsx(ReactMarkdown, {
         className: "content-detail",
         children: result
-      }), data.file && /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+      }), data.file && /*#__PURE__*/jsx_runtime_.jsx("div", {
         className: "jsx-3412090669" + " " + "mt-5",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-          href: container["b" /* url_base */] + data.file.url,
+        children: /*#__PURE__*/jsx_runtime_.jsx("a", {
+          href: container/* url_base */.I + data.file.url,
           target: "_blank",
           className: "jsx-3412090669" + " " + "font-medium text-blue-700 text-lg",
           children: "Xem n\u1ED9i dung chi ti\u1EBFt"
         })
       })]
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(style_default.a, {
+    }), /*#__PURE__*/jsx_runtime_.jsx((style_default()), {
       id: "3412090669",
       children: [".content.jsx-3412090669 p.jsx-3412090669{margin:5px 0px;}"]
     })]
@@ -321,7 +183,7 @@ async function getServerSideProps(_ref) {
   } = _ref,
       ctx = _slug_objectWithoutProperties(_ref, ["query"]);
 
-  const res = await fetch(container["a" /* url_api */] + "/posts?slug=" + query.slug);
+  const res = await fetch(container/* url_api */.C + "/posts?slug=" + query.slug);
   const data = await res.json();
   return {
     props: {
@@ -329,44 +191,99 @@ async function getServerSideProps(_ref) {
     }
   };
 }
-/* harmony default export */ var _slug_ = __webpack_exports__["default"] = (PostDeital);
+/* harmony default export */ var _slug_ = (PostDeital);
 
 /***/ }),
 
-/***/ "UWo5":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ 5145:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("F5FC");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "C": function() { return /* binding */ url_api; },
+/* harmony export */   "I": function() { return /* binding */ url_base; }
+/* harmony export */ });
+const url_api = "http://103.137.185.86:1337";
+const url_base = "http://103.137.185.86:1337";
+
+/***/ }),
+
+/***/ 1473:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "C": function() { return /* binding */ localeTime; }
+/* harmony export */ });
+const localeTime = time => {
+  const day = new Date(time).toLocaleString().split(",")[0];
+  return day;
+};
+
+/***/ }),
+
+/***/ 5051:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5282);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
 
 const NotFound = () => {
-  return /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {
+  return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
     className: "px-10",
-    children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("img", {
+    children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
       src: "/images/notfound.jpg",
       className: "w-full h-100"
     })
   });
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (NotFound);
+/* harmony default export */ __webpack_exports__["Z"] = (NotFound);
 
 /***/ }),
 
-/***/ "id0+":
-/***/ (function(module, exports) {
+/***/ 701:
+/***/ (function(module) {
 
-module.exports = require("react-markdown");
+"use strict";
+module.exports = require("next/head");;
 
 /***/ }),
 
-/***/ "xnum":
-/***/ (function(module, exports) {
+/***/ 3703:
+/***/ (function(module) {
 
-module.exports = require("next/head");
+"use strict";
+module.exports = require("react-markdown");;
+
+/***/ }),
+
+/***/ 5282:
+/***/ (function(module) {
+
+"use strict";
+module.exports = require("react/jsx-runtime");;
+
+/***/ }),
+
+/***/ 3289:
+/***/ (function(module) {
+
+"use strict";
+module.exports = require("styled-jsx/style");;
 
 /***/ })
 
-/******/ });
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
+var __webpack_exports__ = (__webpack_exec__(8638));
+module.exports = __webpack_exports__;
+
+})();
