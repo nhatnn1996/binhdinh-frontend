@@ -52,10 +52,10 @@ const PostCard = ({ item }) => {
 };
 
 export async function getServerSideProps({ query, ...ctx }) {
-  const res = await fetch(url_api + "/categories?slug=" + query.slug);
+  const res = await fetch(url_api + "/posts?category.slug=" + query.slug);
   const data = await res.json();
   return {
-    props: { data: data[0] ? data[0].posts : [] }
+    props: { data: data },
   };
 }
 

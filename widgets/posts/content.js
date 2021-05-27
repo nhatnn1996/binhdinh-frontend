@@ -10,9 +10,9 @@ const PostContent = () => {
     { name: "TIN TRONG TỈNH", slug: "tin-trong-tinh" },
   ];
   if (!state) {
-    Promise.all(blocks.map((block) => fetch(url_api + "/categories?slug=" + block.slug))).then((responses) => {
+    Promise.all(blocks.map((block) => fetch(url_api + "/posts?category.slug="+block.slug+"&_limit=4&_sort=updatedAt:desc"))).then((responses) => {
       Promise.all(responses.map((responses) => responses.json())).then((datas) => {
-        const result = datas.map((element) => element[0].posts);
+        const result = datas.map((element) => element);
         setState(result);
       });
     });

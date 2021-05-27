@@ -1,12 +1,7 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/about": "pages/about.html",
-  "/bai-viet/[slug]": "pages/bai-viet/[slug].js",
-  "/danh-muc/[slug]": "pages/danh-muc/[slug].js",
-  "/folders/[slug]": "pages/folders/[slug].js",
-  "/": "pages/index.js",
-  "/trang/[slug]": "pages/trang/[slug].js",
   "/_error": "pages/_error.js",
-  "/404": "pages/404.html"
+  "/danh-muc/[slug]": "pages/danh-muc/[slug].js",
+  "/": "pages/index.js"
 }

@@ -4,6 +4,7 @@ import Footer from "@/widgets/footer/";
 import SliderBar from "@/widgets/slider-bar/index";
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from "next/router";
+import GlobalContext from "../context/global";
 
 import "tailwindcss/dist/tailwind.min.css";
 import "@/shared/styles/globals.css";
@@ -21,7 +22,7 @@ Router.events.on("routeChangeError", progress.finish);
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <GlobalContext>
       <Header />
       <Menu />
       <main className="container mx-auto flex mt-10">
@@ -33,7 +34,7 @@ function MyApp({ Component, pageProps }) {
         </div>
       </main>
       <Footer />
-    </div>
+    </GlobalContext>
   );
 }
 

@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect } from "react";
+import { url_base } from "@/shared/container/index";
+import { setCategories } from "../../store/global";
+import qs from "qs";
 
 const menus = [
   { name: "Trang chủ", href: "/" },
@@ -81,7 +84,43 @@ const menus = [
   { name: "Nhà máy nước sạch", href: "/" },
   { name: "Liên hệ - góp ý", href: "/" },
 ];
+
+const getChildCategory = (data, slug) => {
+  const childrend = data.filter((element) => element.category?.slug === slug).map((element) => element.slug);
+  return childrend;
+};
+
+const getAllCategoriesBySlug = (data, slug) => {
+  let childrent = getChildCategory(data, slug);
+  if (childrent.length === 0) return childrent;
+  else {
+    childrent.forEach((element) => {
+      const slugs = getAllCategoriesBySlug(data, element);
+      childrent = childrent.concat(slugs);
+    });
+    return childrent;
+  }
+};
+
+const queryRequest = (slug) => {
+  const slugs = slug.map((element) => ({ "category.slug": element }));
+  const query = qs.stringify({
+    _where: {
+      _or: [...slugs],
+    },
+  });
+  return query;
+};
+
 const Menu = () => {
+  useEffect(() => {
+    fetch(url_base + "/categories")
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data);
+      });
+  }, []);
+
   return (
     <nav className="shadow-xl bg-white">
       <div className="container mx-auto">
