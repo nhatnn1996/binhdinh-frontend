@@ -18,6 +18,6 @@ module.exports = {
     },
   },
   images: {
-    domains: ["http://103.137.185.86:1337"],
+    domains: ["https://admin.nuocnongthon.binhdinh.vn/"],
   },
 };
